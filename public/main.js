@@ -23,6 +23,11 @@ const fetchAllTasks = async () => {
         taskContainer.appendChild(toDoTaskContainer);
 
         toDoTaskTitle.innerText = taskToDo.task;
+
+        //If checked, make the completed content marked, otherwise, return regular.//
+        checkBoxTask.addEventListener('change', function() {
+            toDoTaskTitle.style.textDecoration = checkBoxTask.checked ? 'line-through' : 'none';
+        });
     });
 };
 

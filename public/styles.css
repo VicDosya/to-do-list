@@ -88,3 +88,18 @@ body {
 #submitBtn:active {
     background-color: rgb(107, 145, 250);
 }
+
+#checkBoxTask {
+    float: right;
+    margin-top: -63px;
+    width: 40px;
+    height: 40px;
+    opacity: 45%;
+    transition: 0.4s;
+    cursor: pointer;
+    accent-color: rgb(43, 201, 43);
+}
+#checkBoxTask:hover {
+    opacity: 100%;
+    transition: 0.4s;
+}
