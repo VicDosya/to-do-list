@@ -46,6 +46,11 @@ body {
     line-height: 45px;
     vertical-align: middle;
     border-radius: 3px;
+    transition: 0.2s;
+}
+#toDoTaskContainer:hover {
+    background-color: rgb(212, 212, 212);
+    transition: 0.2s;
 }
 #toDoTaskTitle {
     padding-left: 15px;

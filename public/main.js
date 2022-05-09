@@ -25,8 +25,10 @@ const fetchAllTasks = async () => {
         toDoTaskTitle.innerText = taskToDo.task;
 
         //If checked, make the completed content marked, otherwise, return regular.//
-        checkBoxTask.addEventListener('change', function() {
+        checkBoxTask.addEventListener('change', function () {
             toDoTaskTitle.style.textDecoration = checkBoxTask.checked ? 'line-through' : 'none';
+            toDoTaskTitle.style.color = checkBoxTask.checked ? '#D8D8D8' : 'black';
+            toDoTaskContainer.style.backgroundColor = checkBoxTask.checked ? '#F7F7F7' : 'rgb(233, 233, 233)';
         });
     });
 };
@@ -35,7 +37,7 @@ fetchAllTasks();
 
 //Pressing the button sends data input to server - also fetches all tasks//
 submitBtn.addEventListener('click', async () => {
-        const response = await fetch('/api/tasks', {
+    const response = await fetch('/api/tasks', {
         method: "post",
         headers: {
             'Accept': 'application/json',
@@ -46,6 +48,7 @@ submitBtn.addEventListener('click', async () => {
         }),
     });
     const result = await response.json();
+    toDoInput.value = '';
     console.log(result);
 
     fetchAllTasks();
