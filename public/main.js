@@ -30,6 +30,8 @@ const fetchAllTasks = async () => {
             toDoTaskTitle.style.color = checkBoxTask.checked ? '#D8D8D8' : 'black';
             toDoTaskContainer.style.backgroundColor = checkBoxTask.checked ? '#F7F7F7' : 'rgb(233, 233, 233)';
         });
+
+
     });
 };
 
@@ -37,19 +39,23 @@ fetchAllTasks();
 
 //Pressing the button sends data input to server - also fetches all tasks//
 submitBtn.addEventListener('click', async () => {
-    const response = await fetch('/api/tasks', {
-        method: "post",
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            task: toDoInput.value
-        }),
-    });
-    const result = await response.json();
-    toDoInput.value = '';
-    console.log(result);
-
-    fetchAllTasks();
+    if(toDoInput.value === ''){
+        toDoInput.innerText === 'Enter your todo!';
+    } else {
+        const response = await fetch('/api/tasks', {
+            method: "post",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                task: toDoInput.value
+            }),
+        });
+        const result = await response.json();
+        toDoInput.value = '';
+        console.log(result);
+    
+        fetchAllTasks();
+    }
 });

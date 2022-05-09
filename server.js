@@ -24,7 +24,6 @@ app.post('/api/tasks', (req, res) => {
     });
 });
 
-
 app.get('/api/tasks', (req, res) => {
     res.send(tasks);
 });
